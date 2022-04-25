@@ -17,11 +17,12 @@ describe('buildList', () => {
 
   it('validates', () => {
     const valid  = validate(defaultTokenList);
+    console.log(valid)
 
     if (!valid) {
       console.error(validate.errors);
     }
-    //console.log(defaultTokenList)
+    // console.log(defaultTokenList)
     expect(valid).to.equal(true);
   });
 
@@ -29,6 +30,8 @@ describe('buildList', () => {
     const map = {};
     for (let token of defaultTokenList.tokens) {
       const key = `${token.chainId}-${token.address}`;
+      // console.log(key)
+      // console.log(map[ key ])
       expect(typeof map[ key ])
         .to.equal('undefined');
       map[ key ] = true;
